@@ -1,3 +1,3 @@
-# super-badger
+# SuperBadger
 
 ## Rules
