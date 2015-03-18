@@ -43,8 +43,6 @@ function createPattern(theImg) {
 }
 
 function loadImages() {
-  var imgPrefix = ["playfield", "badger", "exec"];
-
   function loadImage(imgName, index) {
     var img       = window[imgName + "Image"],
         imgReady  = window[imgName + "Ready"],
@@ -59,7 +57,7 @@ function loadImages() {
     }
   }
 
-  imgPrefix.forEach(loadImage);
+  ["playfield", "badger", "exec"].forEach(loadImage);
 }
 
 loadImages();
