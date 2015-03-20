@@ -18,8 +18,16 @@
       main,
       then;
 
+  // Game images map
+  var gameImagesMap = {
+        playfield: ".jpg",
+        badger   : ".png",
+        desk     : ".png",
+        exec     : ".png"
+      };
+
   // Game objects
-  var badger         = {
+  var badger      = {
         speed: 256
       },
       exec        = {},
@@ -38,10 +46,7 @@
   }
 
   function loadImages() {
-    function loadImage(imgName, index) {
-      var imgPrefix = imgName.indexOf("badger") >= 0 ||
-                      imgName === "exec" ? ".png" : ".jpg";
-
+    function loadImage(imgName, imgPrefix) {
       scopeContainer[imgName + "Image"] = new Image();
       scopeContainer[imgName + "Image"].src = "assets/" + imgName + imgPrefix;
       scopeContainer[imgName + "Image"].onload = function() {
@@ -49,7 +54,11 @@
       }
     }
 
-    ["playfield", "badger", "exec"].forEach(loadImage);
+    for (var key in gameImagesMap) {
+      if (gameImagesMap.hasOwnProperty(key)) {
+        loadImage(key, gameImagesMap[key]);
+      }
+    }
   }
 
   function collision() {
