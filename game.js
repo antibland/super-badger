@@ -52,6 +52,13 @@
     ["playfield", "badger", "exec"].forEach(loadImage);
   }
 
+  function collision() {
+    return badger.x <= (exec.x + EXEC_WIDTH)   &&
+           exec.x <= (badger.x + BADGER_WIDTH) &&
+           badger.y <= (exec.y + EXEC_HEIGHT)  &&
+           exec.y <= (badger.y + BADGER_HEIGHT);
+  }
+
   loadImages();
 
   canvas.width = CANVAS_WIDTH;
@@ -101,12 +108,7 @@
     }
 
     // Collision check
-    if (
-      badger.x <= (exec.x + EXEC_WIDTH)
-      && exec.x <= (badger.x + BADGER_WIDTH)
-      && badger.y <= (exec.y + EXEC_HEIGHT)
-      && exec.y <= (badger.y + BADGER_HEIGHT)
-    ) {
+    if (collision()) {
       ++execsCaught;
       reset();
     }
