@@ -1,1 +1,5 @@
-# SuperBadger
+#SuperBadger
+
+##Rules
+
+##Enemies
