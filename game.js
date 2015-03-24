@@ -139,10 +139,10 @@
 
     // Score
     context.fillStyle = "rgb(250, 250, 250)";
-    context.font = "24px Helvetica";
+    context.font = "48px Shadows Into Light";
     context.textAlign = "left";
     context.textBaseline = "top";
-    context.fillText("" + execsCaught, 32, 32);
+    context.fillText("" + execsCaught, 32, 16);
   };
 
   // The main game loop
