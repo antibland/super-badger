@@ -61,6 +61,20 @@
     }
   }
 
+  function setupCanvas() {
+    canvas.width = CANVAS_WIDTH;
+    canvas.height = CANVAS_HEIGHT;
+    document.body.appendChild(canvas);
+  }
+
+  function createCover() {
+    coverImage = new Image();
+    coverImage.src = "assets/cover.jpg";
+    coverImage.onload = function() {
+      createPattern(coverImage);
+    };
+  }
+
   function collision() {
     return badger.x <= (exec.x + EXEC_WIDTH)   &&
            exec.x <= (badger.x + BADGER_WIDTH) &&
@@ -69,17 +83,8 @@
   }
 
   loadImages();
-
-  canvas.width = CANVAS_WIDTH;
-  canvas.height = CANVAS_HEIGHT;
-  document.body.appendChild(canvas);
-
-  // Cover background image
-  coverImage = new Image();
-  coverImage.src = "assets/cover.jpg";
-  coverImage.onload = function() {
-    createPattern(coverImage);
-  };
+  setupCanvas();
+  createCover();
 
   addEventListener("keydown", function (e) {
     keysDown[e.keyCode] = true;
